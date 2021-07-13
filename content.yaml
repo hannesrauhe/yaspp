@@ -1387,3 +1387,36 @@ long_summary_md: |
   * &#x1f3b6;&nbsp;[FMA: sawsquarenoise - Boos Theme](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/boss-theme)
   * &#x1f3b6;&nbsp;[FMA: Audiobinger - Letter to Summer](https://freemusicarchive.org/music/Audiobinger/quarantine-beats-vol-2/letter-to-summer)
   * &#x1f3b6;&nbsp;[FMA: Derek Clegg - Since Seventeen](https://freemusicarchive.org/music/Derek_Clegg/the-middler/since-seventeen)
+---
+uuid:     nt-2021-06-14
+title:    CiR am 14.06.2021
+subtitle: Der Chaostreff im Freien Radio Potsdam
+summary:  >
+  Gini, Cyroxx und Knurps
+publicationDate: "2021-07-13T00:03:00+01:00"
+audio:
+  - url:      $media_base_url/2021_04_12-chaos-im-radio.mp3
+    mimeType: audio/mp3
+chapters:
+  - start: '00:00:00'
+    title: 'Creepy Cyber Intro, Corona Lockerungen und Impftermine'
+  - start: '00:15:02'
+    title: 'sawsquarenoise - Boss Theme'
+    href: 'https://freemusicarchive.org/music/sawsquarenoise/dojokratos/boss-theme'
+  - start: '00:16:32'
+    title: 'Knurps Schenidekünste und Chaos Feedback'
+  - start: '00:46:07'
+    title: 'Audiobinger - Letter to Summer'
+    href: 'https://freemusicarchive.org/music/Audiobinger/quarantine-beats-vol-2/letter-to-summer'
+  - start: '00:49:32'
+    title: 'Gefaelschte SMS von DHL'
+  - start: '01:00:00'
+    title: 'Derek Clegg - Since Seventeen'
+    href: 'https://freemusicarchive.org/music/Derek_Clegg/the-middler/since-seventeen'
+long_summary_md: |
+  **Shownotes:**
+  * Menschen, die denken, dass sie durch Impfungen magnetisch werde: https://youtu.be/qWI0YiSmTKs?t=76
+
+  * &#x1f3b6;&nbsp;[FMA: sawsquarenoise - Boos Theme](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/boss-theme)
+  * &#x1f3b6;&nbsp;[FMA: Audiobinger - Letter to Summer](https://freemusicarchive.org/music/Audiobinger/quarantine-beats-vol-2/letter-to-summer)
+  * &#x1f3b6;&nbsp;[FMA: Derek Clegg - Since Seventeen](https://freemusicarchive.org/music/Derek_Clegg/the-middler/since-seventeen)
