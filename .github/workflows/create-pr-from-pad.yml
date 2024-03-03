@@ -19,3 +19,33 @@ jobs:
       - name: Run Go program
         working-directory: ./pad2gh
         run: go run main.go
+
+      - name: Get current date and time
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
+
+      - name: Commit changes
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          date >> touched-file.txt
+          git add .
+          git commit -m "Add episode from Pad - ${DATE}"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.7.0
+        with:
+          branch: "content-${{ steps.date.outputs.date }}"
+          force: true
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Add episode from Pad'
+          title: 'Add episode from Pad'
+          body: |
+            This is an automated pull request created by a GitHub Actions workflow.
+            Please review and merge if appropriate.
+          branch: "content-${{ steps.date.outputs.date }}" # Append current date to the branch name
+          base: main
