@@ -9,6 +9,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 
 	"gopkg.in/yaml.v3"
@@ -141,19 +142,21 @@ func getMarkdownContentBySection(padURL string) map[string][]string {
 }
 
 func main() {
+	outputFile := flag.String("o", "../content.yaml", "specify the yaml file to write to")
+	padURLPtr := flag.String("l", "", "specify the link to the pad entry you want to parse")
 	flag.Parse()
 	padURL := ""
 	var err error
-	if flag.NArg() >= 1 {
-		padURL = flag.Arg(0)
-		if !strings.HasPrefix(padURL, "https://pad.ccc-p.org/") {
-			log.Fatal("pad url must start with https://pad.ccc-p.org/")
-		}
-	} else {
+	if padURLPtr == nil || *padURLPtr == "" {
 		padURL, err = getFirstLink("https://pad.ccc-p.org/Radio")
 		if err != nil {
 			log.Fatal(err)
 		}
+	} else {
+		if !strings.HasPrefix(padURL, "https://pad.ccc-p.org/") {
+			log.Fatal("pad url must start with https://pad.ccc-p.org/")
+		}
+		padURL = *padURLPtr
 	}
 	fmt.Printf("pad url: %s\n", padURL)
 	contentBySection := getMarkdownContentBySection(padURL)
@@ -222,6 +225,28 @@ func main() {
 	}
 
 	b, _ := yaml.Marshal(entry)
-	fmt.Printf("%s", b)
 
+	if outputFile == nil || *outputFile == "" {
+		fmt.Printf("%s", b)
+		return
+	}
+
+	file, err := os.OpenFile(*outputFile, os.O_RDWR|os.O_APPEND, 0666)
+	if err != nil {
+		fmt.Printf("%s", b)
+		log.Fatalf("Error while opening %v: %v", *outputFile, err)
+		return
+	}
+	_, err = file.Write(b)
+	if err != nil {
+		fmt.Printf("%s", b)
+		log.Fatalf("Error writing %v: %v", *outputFile, err)
+		return
+	}
+	err = file.Close()
+	if err != nil {
+		fmt.Printf("%s", b)
+		log.Fatalf("Error closing %v: %v", *outputFile, err)
+		return
+	}
 }
