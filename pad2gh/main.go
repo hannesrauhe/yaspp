@@ -12,6 +12,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v3"
 )
 
@@ -142,8 +143,13 @@ func getMarkdownContentBySection(padURL string) map[string][]string {
 }
 
 func main() {
+	logger := logrus.StandardLogger()
 	outputFile := flag.String("o", "../content.yaml", "specify the yaml file to write to")
 	padURLPtr := flag.String("l", "", "specify the link to the pad entry you want to parse")
+	verbose := flag.Bool("v", false, "verbose output")
+	if *verbose {
+		logger.SetLevel(logrus.DebugLevel)
+	}
 	flag.Parse()
 	padURL := ""
 	var err error
@@ -158,7 +164,7 @@ func main() {
 		}
 		padURL = *padURLPtr
 	}
-	fmt.Printf("pad url: %s\n", padURL)
+	logger.Debugf("pad url: %s\n", padURL)
 	contentBySection := getMarkdownContentBySection(padURL)
 
 	if len(strings.Split(padURL, "_")) < 2 {
@@ -168,7 +174,7 @@ func main() {
 	if len(entryDate) < 10 {
 		log.Fatal("pad url must contain a date in the format YYYY-MM-DD_")
 	}
-	fmt.Printf("::set-output name=entrydate::%s\n", entryDate)
+	fmt.Printf("entrydate=%s\n", entryDate)
 
 	year := entryDate[0:4]
 	month := entryDate[5:7]
@@ -234,20 +240,20 @@ func main() {
 
 	file, err := os.OpenFile(*outputFile, os.O_RDWR|os.O_APPEND, 0666)
 	if err != nil {
-		fmt.Printf("%s", b)
-		log.Fatalf("Error while opening %v: %v", *outputFile, err)
+		logger.Debugf("%s", b)
+		logger.Fatalf("Error while opening %v: %v", *outputFile, err)
 		return
 	}
 	_, err = file.Write(b)
 	if err != nil {
-		fmt.Printf("%s", b)
-		log.Fatalf("Error writing %v: %v", *outputFile, err)
+		logger.Debugf("%s", b)
+		logger.Fatalf("Error writing %v: %v", *outputFile, err)
 		return
 	}
 	err = file.Close()
 	if err != nil {
-		fmt.Printf("%s", b)
-		log.Fatalf("Error closing %v: %v", *outputFile, err)
+		logger.Debugf("%s", b)
+		logger.Fatalf("Error closing %v: %v", *outputFile, err)
 		return
 	}
 }
