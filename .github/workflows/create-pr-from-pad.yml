@@ -19,11 +19,11 @@ jobs:
       - name: Parse Pad Entry and append to content.yaml
         id: go-run
         working-directory: ./pad2gh
-        run: go run main.go
+        run: go run main.go >> $GITHUB_OUTPUT 
 
       - name: Get current date and time
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
+        run: echo "date=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_OUTPUT        
 
       - name: Commit changes
         run: |
