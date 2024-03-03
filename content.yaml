@@ -2003,3 +2003,33 @@ long_summary_md: |
   * [Chaostreff Potsdam](https://www.ccc-p.org/), immer mittwochs ab 19:00 Uhr
   * [Bits & Bäume](https://berlin.bits-und-baeume.org/)
 
+uuid: nt-2024-02-12
+title: CiR am 12.02.2024
+subtitle: Der Chaostreff im Freien Radio Potsdam
+summary: |4-
+    Gini, Knurps und Hannes reden ausführlich über den vergangenen 37C3 in Hamburg und ihre anderen Erfahrungen mit Live-Chaos-Events wie das Zonenwochenende.
+publicationDate: "2024-02-12T00:00:00+02:00"
+audio:
+    url: $media_base_url/2024_02_12-chaos-im-radio.mp3
+    mimetype: audio/mp3
+chapters:
+    - start: "00:03"
+      title: Start
+    - start: "00:04"
+      title: 'Mukke: Iliaque: Fog'
+    - start: 00:06?
+      title: 37C3
+    - start: 00:27?
+      title: 'Mukke: nymzaro - Drunk on the Light'
+    - start: "00:30"
+      title: 37C3, zweiter Teil
+    - start: "00:57"
+      title: 'Mukke: Bad Mandi - OB1KENOBLE'
+long_summary_md: |-
+    **Shownotes:**
+
+
+    &#x1f3b6;&nbsp;[Iliaque - Fog - Free Music Archive](https://freemusicarchive.org/music/Iliaque/rest/fog-1/)
+    &#x1f3b6;&nbsp;[nymzaro - Drunk on the Light - Free Music Archive](https://freemusicarchive.org/music/nymzaro/single/drunk-on-the-light/)
+    &#x1f3b6;&nbsp;[Bad Mandi - OB1KENOBLE - Free Music Archive](https://freemusicarchive.org/music/bad-mandi/electrocuteshun/ob1kenoble-1/)
+    &#x1f3b6;&nbsp;[The Day Before Boxing Day Eve - Free Music Archive](https://freemusicarchive.org/music/Various_Artists_Rushcoil/XMAS_Compilation_2010/J_Arthur_Keenes_-_XMAS_Compilation_2010_-_04_The_Day_Before_Boxing_Day_Eve/)
