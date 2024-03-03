@@ -168,7 +168,8 @@ func main() {
 	if len(entryDate) < 10 {
 		log.Fatal("pad url must contain a date in the format YYYY-MM-DD_")
 	}
-	fmt.Printf("entry date: %s\n", entryDate)
+	fmt.Printf("::set-output name=entrydate::%s\n", entryDate)
+
 	year := entryDate[0:4]
 	month := entryDate[5:7]
 	day := entryDate[8:10]

@@ -17,6 +17,7 @@ jobs:
           go-version: '1.21'
 
       - name: Parse Pad Entry and append to content.yaml
+        id: go-run
         working-directory: ./pad2gh
         run: go run main.go
 
@@ -41,8 +42,8 @@ jobs:
         uses: peter-evans/create-pull-request@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'Add episode from Pad'
-          title: 'Add episode from Pad'
+          commit-message: 'Add episode ${{ steps.go-run.outputs.entrydate }} from Pad'
+          title: 'Add episode ${{ steps.go-run.outputs.entrydate }} from Pad'
           body: |
             This is an automated pull request created by a GitHub Actions workflow.
             Please review and merge if appropriate.
