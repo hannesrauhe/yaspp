@@ -10,7 +10,7 @@ After editing your yaml-file run:
 	./yaspp.py [-o output_dir] <CONTENT.YAML>
 
 
-## Peparing your podcast files
+## Preparing your podcast files
 
 Modern podcasts peer pressure promotes per-episode pictures and chapter marks.
 For legacy clients, those should be embedded in the audio file, not only the feed.
