@@ -8,3 +8,7 @@ index.html
 feed.xml
 
 venv/
+
+# Go build artifacts
+pad2gh/pad2gh
+pad2gh/main
