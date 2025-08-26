@@ -5,12 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Package",
+            "name": "Map only",
             "type": "go",
             "request": "launch",
             "mode": "auto",
             "program": "pad2gh",
-            "args": ["-map-only", "-bulk"]
+            "args": ["-map-only", "-bulk", "-file-online"],
+        },
+        {
+            "name": "Single entry",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "pad2gh",
+            "args": ["-sound-dir=/home/hannesra/radio/podcast", "-bulk", "-max-new-entries=1"],
         }
     ]
 }
