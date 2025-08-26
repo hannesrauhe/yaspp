@@ -19,6 +19,14 @@
             "mode": "auto",
             "program": "pad2gh",
             "args": ["-sound-dir=/home/hannesra/radio/podcast", "-bulk", "-max-new-entries=1"],
+        },
+        {
+            "name": "All new entries",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "pad2gh",
+            "args": ["-sound-dir=/home/hannesra/radio/podcast", "-bulk"],
         }
     ]
 }
